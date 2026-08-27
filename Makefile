@@ -17,7 +17,7 @@ env-cleanup:
 		echo "Postgres data not deleted."; \
 	fi
 
-env-port-forward:
+env-port-forwarder:
 	@docker compose up -d port-forwarder
 
 env-port-close:
