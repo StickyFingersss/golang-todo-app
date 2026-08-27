@@ -34,7 +34,7 @@ func NewUserUninitialized(
 	phoneNumber *string,
 ) User {
 	return NewUser(
-		UninitializedId,
+		UninitializedID,
 		UninitializedVersion,
 		fullName,
 		phoneNumber,
