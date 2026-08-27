@@ -17,6 +17,8 @@ env-cleanup:
 		echo "Postgres data not deleted."; \
 	fi
 
+
+
 env-port-forwarder:
 	@docker compose up -d port-forwarder
 
@@ -50,6 +52,15 @@ migrate-action:
 	 -path /migrations \
 	 -database postgres://$(POSTGRES_USER):$(POSTGRES_PASSWORD)@todoapp-postgres:5432/$(POSTGRES_DB)?sslmode=disable \
 	 "$(action)"
+
+logs-cleanup:
+	@read -p "Clear logs? (y/n): " ans; \
+	if [ "$$ans" = "y" ]; then \
+		rm -rf ${PROJECT_ROOT}/out/logs && \
+		echo "Logs data deleted."; \
+	else \
+		echo "Logs data not deleted."; \
+	fi
 	 
 todoapp-run:
 	@export LOGGER_FOLDER=${PROJECT_ROOT}/out/logs && \
